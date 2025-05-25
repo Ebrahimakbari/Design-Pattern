@@ -19,29 +19,29 @@ from abc import ABC, abstractmethod
 # Product interface
 class Document(ABC):
     @abstractmethod
-    def create(self) -> str:
+    def create(self):
         pass
 
 # Concrete Products
 class PDFDocument(Document):
-    def create(self) -> str:
+    def create(self):
         return "PDF document created"
 
 class HTMLDocument(Document):
-    def create(self) -> str:
+    def create(self):
         return "HTML document created"
 
 class WordDocument(Document):
-    def create(self) -> str:
+    def create(self):
         return "Word document created"
 
 # Creator
 class DocumentCreator(ABC):
     @abstractmethod
-    def factory_method(self) -> Document:
+    def factory_method(self):
         pass
     
-    def operation(self) -> str:
+    def operation(self):
         # Call factory method to create a Document object
         document = self.factory_method()
         
@@ -51,19 +51,19 @@ class DocumentCreator(ABC):
 
 # Concrete Creators
 class PDFDocumentCreator(DocumentCreator):
-    def factory_method(self) -> Document:
+    def factory_method(self):
         return PDFDocument()
 
 class HTMLDocumentCreator(DocumentCreator):
-    def factory_method(self) -> Document:
+    def factory_method(self):
         return HTMLDocument()
 
 class WordDocumentCreator(DocumentCreator):
-    def factory_method(self) -> Document:
+    def factory_method(self):
         return WordDocument()
 
 # Client code
-def export_document(creator: DocumentCreator) -> None:
+def export_document(creator: DocumentCreator):
     print(f"Exporting document: {creator.operation()}")
 
 
