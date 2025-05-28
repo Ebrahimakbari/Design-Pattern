@@ -32,6 +32,7 @@ class AnonymousPage(Page):
         print('show anon page!!')
 
 
+#Abstract Decorator
 class PageDecorator(Page, ABC):
     def __init__(self, component):
         self._component = component
@@ -40,7 +41,7 @@ class PageDecorator(Page, ABC):
     def show(self):
         pass
 
-
+#Concrete decorator
 class AuthenticationDecorator(PageDecorator):
     def show(self):
         component = self._component
